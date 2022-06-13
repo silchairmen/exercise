@@ -2,38 +2,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <LinearLayout
-        android:orientation="vertical"
+    <TextView
         android:layout_width="match_parent"
-        android:background="@drawable/diary_back"
-        android:layout_height="600dp">
-        <TextView
-            android:id="@+id/show_date"
-            android:layout_width="match_parent"
-            android:layout_height="105dp"
-            android:gravity="bottom"
-            android:text="DATE"/>
+        android:layout_height="wrap_content"
+        android:text="일기"/>
 
-        <EditText
-            android:id="@+id/edtDiary"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_weight="1"
-            android:textSize="12sp"
-            android:lines="15"/>
-
-    </LinearLayout>
+    <DatePicker
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/datepicker1"
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner"/>
+    <EditText
+        android:id="@+id/edtDiary"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#ff44ff44"
+        android:lines="8"/>
     <Button
         android:id="@+id/btnWrite"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:gravity="center"
-        android:textStyle="italic"
-        android:text="글쓰기"/>
+        android:layout_height="wrap_content"
+        android:text="BUTTON"/>
     <Button
-        android:id="@+id/btnBack"
+        android:id="@+id/BtnE"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:gravity="center"
+        android:layout_height="wrap_content"
         android:text="돌아가기"/>
 </LinearLayout>

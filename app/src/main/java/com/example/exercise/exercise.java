@@ -1,6 +1,7 @@
 package com.example.exercise;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
@@ -22,7 +23,7 @@ public class exercise extends AppCompatActivity {
     SQLiteDatabase sqlDB;
     DatePicker dp;
     EditText edtEx, edtSet, edtNum;
-    Button btnE, btnWrite, btnTemp;
+    Button btnE, btnWrite, btnTemp,btnReset;
     String fileName;
     TextView text_temp;
 
@@ -36,6 +37,7 @@ public class exercise extends AppCompatActivity {
         edtSet =(EditText) findViewById(R.id.edtSet);
         edtNum = (EditText) findViewById(R.id.edtNum);
         btnWrite = (Button) findViewById(R.id.btnWrite);
+        btnReset = (Button) findViewById(R.id.btnReset);
         btnE = (Button) findViewById(R.id.BtnE);
         btnTemp = (Button) findViewById(R.id.btnTmp);
         text_temp = (TextView) findViewById(R.id.textTmp);
@@ -73,7 +75,7 @@ public class exercise extends AppCompatActivity {
         btnTemp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String str_temp = "\n운동 : " + edtEx.getText().toString() + "  개수 : " + edtNum.getText().toString() + "  세트수 :" + edtSet.getText().toString();
+                String str_temp = "\n운동 : " + edtEx.getText().toString() + " - "+ " 개수 : " + edtNum.getText().toString() + " - "+"  세트수 :" + edtSet.getText().toString();
 
                 if(text_temp.getText()==null){
                     text_temp.setText(str_temp);
@@ -82,6 +84,19 @@ public class exercise extends AppCompatActivity {
                     String str_temp_final = text_temp.getText().toString() + str_temp;
                     text_temp.setText(str_temp_final);
                 }
+            }
+        });
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sqlDB = myHelper.getWritableDatabase();
+                sqlDB.execSQL("DELETE FROM myExer WHERE Date = '" + fileName + "';"
+                );
+                sqlDB.close();
+                Intent intent = getIntent();
+                finish();
+                startActivity(intent);
+                Toast.makeText(getApplicationContext(), "삭제됨",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -94,7 +109,6 @@ public class exercise extends AppCompatActivity {
                         + "'WHERE Date = '" + fileName + "';"
                 );
                 sqlDB.close();
-                btnWrite.setText("수정하기");
                 Toast.makeText(getApplicationContext(), "저장됨",Toast.LENGTH_SHORT).show();
             } //원하는 날짜에 있는 운동 내용을 수정해주는 역할
         });
@@ -128,7 +142,6 @@ public class exercise extends AppCompatActivity {
                     return ExerContent;
                 }
             }
-            btnWrite.setText("수정하기");
             cursor.close();
             sqlDB.close();
         }catch(SQLiteException e){

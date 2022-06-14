@@ -6,24 +6,25 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_weight="1">
+        android:layout_height="523dp"
+        android:layout_weight="1.7"
+        android:orientation="vertical">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/black"
-            android:textColor="@color/white"
-            android:textSize="30dp"
             android:gravity="center"
             android:text="Just Do it!"
-            />
+            android:textColor="@color/white"
+            android:textSize="30dp" />
+
         <DatePicker
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
             android:id="@+id/datepicker1"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
             android:calendarViewShown="false"
-            android:datePickerMode="spinner"/>
+            android:datePickerMode="spinner" />
     </LinearLayout>
 
     <LinearLayout
@@ -50,9 +51,16 @@
             android:hint="세트당 횟 수를 입력하세요"/>
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:id="@+id/textTmp">
-        </TextView>
+            android:layout_height="wrap_content"
+            android:text="TODAY WorkList!"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:textColor="@color/black"></TextView>
+        <TextView
+            android:id="@+id/textTmp"
+            android:layout_width="match_parent"
+            android:gravity="center|top"
+            android:layout_height="310dp"></TextView>
     </LinearLayout>
     <ScrollView
         android:layout_width="match_parent"
@@ -70,11 +78,18 @@
                 android:text="운동 임시저장">
             </Button>
             <Button
+                android:id="@+id/btnReset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="운동 삭제하기">
+            </Button>
+            <Button
                 android:id="@+id/btnWrite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="운동저장하기"/>
+                android:text="운동 저장하기"/>
             <Button
                 android:id="@+id/BtnE"
                 android:layout_width="wrap_content"

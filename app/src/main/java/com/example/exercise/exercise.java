@@ -136,7 +136,7 @@ public class exercise extends AppCompatActivity {
             }
             if (ExerContent == null){
                 edtEx.setHint("운동 입력 안함");
-                btnWrite.setText("새로 저장");
+                btnWrite.setText("오늘 운동 저장");
                 if(Date != fName){
                     sqlDB.execSQL("INSERT INTO myExer VALUES('"+fileName+"',"+null+","+null+","+null+");"); //데이트 피커가 바뀔때마다 테이블에 바뀐 날짜를 저장해준다. -> 그래야 update를 할때 해당 날짜를 통해 update할수 있기 때문
                     return ExerContent;

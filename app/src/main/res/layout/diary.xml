@@ -5,21 +5,35 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="일기"/>
+        android:text="DIARY"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:background="#FFE87C"/>
 
     <DatePicker
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="200dp"
         android:id="@+id/datepicker1"
         android:calendarViewShown="false"
         android:datePickerMode="spinner"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TODAY'S DIARY"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:background="@color/white"/>
     <EditText
         android:id="@+id/edtDiary"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="#ff44ff44"
+        android:background="#FFE87C"
+        android:hint="How was your day?"
+        android:gravity="top|left"
         android:lines="8"/>
     <Button
         android:id="@+id/btnWrite"

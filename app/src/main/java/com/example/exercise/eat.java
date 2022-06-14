@@ -137,7 +137,7 @@ public class eat extends AppCompatActivity {
                 Eat = cursor.getString(2);
             }
             if (Eat == null){
-                edtEat.setHint("음식 입력안함");
+                edtEat.setHint("음식을 입력해 주세요!");
                 btnWrite.setText("새로 저장");
                 if(Date != fName){
                     sqlDB.execSQL("INSERT INTO myEat VALUES('"+fileName+"',"+"'아침'"+","+null+","+null+");");
@@ -167,7 +167,7 @@ public class eat extends AppCompatActivity {
                 Eatcal = cursor.getString(3);
             }
             if (Eatcal == null){
-                edtCal.setHint("칼로리 입력 안함");
+                edtCal.setHint("칼로리");
                 btnWrite.setText("새로 저장");
 
             }
@@ -193,7 +193,7 @@ public class eat extends AppCompatActivity {
                 Eat = cursor.getString(2);
             }
             if (Eat == null){
-                edtEat2.setHint("음식 입력 안함");
+                edtEat2.setHint("음식을 입력해 주세요!");
                 btnWrite.setText("새로 저장");
                 if(Date != fName){
                     sqlDB.execSQL("INSERT INTO myEat VALUES('"+fileName+"',"+"'점심'"+","+null+","+null+");");
@@ -223,7 +223,7 @@ public class eat extends AppCompatActivity {
                 Eatcal = cursor.getString(3);
             }
             if (Eatcal == null){
-                edtCal2.setHint("칼로리 입력안함");
+                edtCal2.setHint("칼로리");
                 btnWrite.setText("새로 저장");
 
             }
@@ -249,7 +249,7 @@ public class eat extends AppCompatActivity {
                 Eat = cursor.getString(2);
             }
             if (Eat == null){
-                edtEat3.setHint("음식 입력 안함");
+                edtEat3.setHint("음식을 입력해 주세요!");
                 btnWrite.setText("새로 저장");
                 if(Date != fName){
                     sqlDB.execSQL("INSERT INTO myEat VALUES('"+fileName+"',"+"'저녁'"+","+null+","+null+");");
@@ -279,7 +279,7 @@ public class eat extends AppCompatActivity {
                 Eatcal = cursor.getString(3);
             }
             if (Eatcal == null){
-                edtCal3.setHint("칼로리 입력 안함");
+                edtCal3.setHint("칼로리");
                 btnWrite.setText("새로 저장");
 
             }

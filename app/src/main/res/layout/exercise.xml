@@ -75,7 +75,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/btnTmp"
                 android:layout_weight="1"
-                android:text="운동 임시저장">
+                android:text="운동 추가하기">
             </Button>
             <Button
                 android:id="@+id/btnReset"

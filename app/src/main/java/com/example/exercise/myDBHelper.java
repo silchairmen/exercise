@@ -6,12 +6,12 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class myDBHelper extends SQLiteOpenHelper {
     public myDBHelper(Context context){
-        super(context, "myDB", null, 1);
+        super(context, "myDB_final", null, 1);
     }
 
     public void onCreate(SQLiteDatabase db){
 
-        String Diary = "CREATE TABLE myDiary(Date char(10), content varchar(500));";
+        String Diary = "CREATE TABLE myDiary(Date char(10), content Text);";
         db.execSQL(Diary);
 
         String Exer ="CREATE TABLE myExer(Date char(10), ExerContent char(500));";

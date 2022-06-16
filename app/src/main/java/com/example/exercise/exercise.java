@@ -51,8 +51,6 @@ public class exercise extends AppCompatActivity {
 
         fileName = Integer.toString(cYear) + "_" + Integer.toString(cMonth + 1) + "_" + Integer.toString(cDay);//년, 월, 일 형식에 맞게 filename에 저장해준다.
         String str = readExer(fileName);  //테이블을 읽어오는 readExer 함수에 fileName을 넣어 날짜를 통해 테이블을 읽는다.
-        String str2 = readExer2(fileName);
-        String str3 = readExer3(fileName);
         btnWrite.setEnabled(true);
 
 
@@ -138,7 +136,7 @@ public class exercise extends AppCompatActivity {
                 edtEx.setHint("운동 입력 안함");
                 btnWrite.setText("오늘 운동 저장");
                 if(Date != fName){
-                    sqlDB.execSQL("INSERT INTO myExer VALUES('"+fileName+"',"+null+","+null+","+null+");"); //데이트 피커가 바뀔때마다 테이블에 바뀐 날짜를 저장해준다. -> 그래야 update를 할때 해당 날짜를 통해 update할수 있기 때문
+                    sqlDB.execSQL("INSERT INTO myExer VALUES('"+fileName+"',"+null+");"); //데이트 피커가 바뀔때마다 테이블에 바뀐 날짜를 저장해준다. -> 그래야 update를 할때 해당 날짜를 통해 update할수 있기 때문
                     return ExerContent;
                 }
             }
@@ -150,57 +148,6 @@ public class exercise extends AppCompatActivity {
         return ExerContent;
     }
 
-    String readExer2(String fName){
-        String Date = null;
-        String ExerSet = null;
-        try {
-            sqlDB = myHelper.getReadableDatabase();
-            Cursor cursor;
-            cursor = sqlDB.rawQuery("SELECT * FROM myExer WHERE Date = '"
-                    + fName + "';",null);
 
-            while (cursor.moveToNext()){
-                Date = cursor.getString(0);
-                ExerSet = cursor.getString(2);
-            }
-            if (ExerSet == null){
-                edtSet.setHint("세트수 입력 안함");
-                btnWrite.setText("새로 저장");
-
-            }
-            btnWrite.setText("수정하기");
-            cursor.close();
-            sqlDB.close();
-        }catch(SQLiteException e){
-            Toast.makeText(getApplicationContext(),"에러 발생",Toast.LENGTH_SHORT).show();
-        }
-        return ExerSet;
-    }
-
-    String readExer3(String fName){
-        String Date = null;
-        String ExerNum = null;
-        try {
-            sqlDB = myHelper.getReadableDatabase();
-            Cursor cursor;
-            cursor = sqlDB.rawQuery("SELECT * FROM myExer WHERE Date = '"
-                    + fName + "';",null);
-
-            while (cursor.moveToNext()){
-                Date = cursor.getString(0);
-                ExerNum = cursor.getString(3);
-            }
-            if (ExerNum == null){
-                edtNum.setHint("세트당 운동횟수 입력 안함");
-                btnWrite.setText("새로 저장");
-
-            }
-            cursor.close();
-            sqlDB.close();
-        }catch(SQLiteException e){
-            Toast.makeText(getApplicationContext(),"에러 발생",Toast.LENGTH_SHORT).show();
-        }
-        return ExerNum;
-    }
 
 }

@@ -1,42 +1,102 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="일기"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1">
-        <CalendarView
-            android:id="@+id/calendarView1"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:background="#00CCFF"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="SELF TRAINNER"/>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:showWeekNumber="false" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_weight="1">
-        <EditText
-            android:id="@+id/totalDiary"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:lines="8"/>
-        <EditText
-            android:id="@+id/totalDiary2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:lines="8"/>
-        <Button
-            android:id="@+id/BtnE"
+            android:layout_weight="1">
+            <CalendarView
+                android:id="@+id/calendarView1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:showWeekNumber="false" />
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="돌아가기"/>
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TODAY Exercise"
+                android:textColor="@color/black"
+                android:gravity="left"
+                android:textStyle="italic"
+                android:textSize="25dp"
+                android:layout_marginBottom="15dp">
+            </TextView>
+            <TextView
+                android:id="@+id/totalDiary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:gravity="left"
+                android:textColor="@color/black"
+                android:text="운동"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="FOOD RECORD"
+                android:textStyle="italic"
+                android:textColor="@color/black"
+                android:gravity="left"
+                android:layout_marginBottom="15dp"
+                android:textSize="25dp">
+            </TextView>
+            <TextView
+                android:id="@+id/totalDiary2"
+                android:textSize="14dp"
+                android:gravity="left"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="식단"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="DIARY"
+                android:layout_marginBottom="15dp"
+                android:textColor="@color/black"
+                android:textSize="25dp">
+            </TextView>
+            <TextView
+                android:id="@+id/totalDiary3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="일기"
+                android:textSize="14dp"
+                android:textColor="@color/black"
+                android:gravity="left"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom">
+            <Button
+                android:id="@+id/BtnE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:text="돌아가기"/>
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+
+</ScrollView>

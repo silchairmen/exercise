@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,7 +22,7 @@ public class total_diary extends AppCompatActivity {
     myDBHelper myHelper;
     SQLiteDatabase sqlDB;
     CalendarView cal;
-    EditText totaldiary, totaldiary2;
+    TextView totaldiary, totaldiary2,totaldiary3;
     Button btnE, btnWrite;
     String fileName;
     int cYear, cMonth, cDay;
@@ -32,8 +33,9 @@ public class total_diary extends AppCompatActivity {
         setContentView(R.layout.total_diary);
 
         cal = (CalendarView) findViewById(R.id.calendarView1);
-        totaldiary = (EditText) findViewById(R.id.totalDiary);
-        totaldiary2 = (EditText) findViewById(R.id.totalDiary2);
+        totaldiary = (TextView) findViewById(R.id.totalDiary);
+        totaldiary2 = (TextView) findViewById(R.id.totalDiary2);
+        totaldiary3 = (TextView) findViewById(R.id.totalDiary3);
         btnWrite = (Button) findViewById(R.id.btnWrite);
         btnE = (Button) findViewById(R.id.BtnE);
 
@@ -65,8 +67,9 @@ public class total_diary extends AppCompatActivity {
                 String str = readTotal(fileName);
                 String str2 = readTotal2(fileName);
                 String str3 = readTotal3(fileName);
-                totaldiary.setText(str); //일기
-                totaldiary2.setText(str2 + str3); //운동 및 식단
+                totaldiary3.setText(str); //일기
+                totaldiary2.setText(str3);
+                totaldiary.setText(str2);//운동 및 식단
             }
         });
 
@@ -106,7 +109,7 @@ public class total_diary extends AppCompatActivity {
                 + fName + "'AND ExerContent is NOT NULL;",null);
         while (cursor.moveToNext()){
             Exerresult +="\n"
-                    +"운동 기록: "+ cursor.getString(1);
+                    +"운동 기록 "+ cursor.getString(1)+"\n";
         }
         return Exerresult;
     }
@@ -119,7 +122,7 @@ public class total_diary extends AppCompatActivity {
                 + fName + "'AND Eat is not null AND Eatcal is not null;",null);
         while (cursor.moveToNext()){
             Eatresult +=
-                    " 식사 시간: "+ cursor.getString(1)
+                            cursor.getString(1)
                             +", 음식: "
                             + cursor.getString(2)
                             +", 칼로리: "
